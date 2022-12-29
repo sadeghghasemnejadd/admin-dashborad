@@ -1,0 +1,156 @@
+$primary_color: #3b5bdb;
+$withe_color: #edf2ff;
+$black_color: #212529;
+$main_border_raduis: 2.4;
+@font-face {
+  font-family: "xirod";
+  src: url("./../fonts/xirod.ttf");
+}
+@font-face {
+  font-family: "iransans";
+  src: url("./../fonts/IRANSans.ttf");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  font-family: iransans;
+}
+body {
+  font-size: 1.6rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 3.2rem;
+}
+
+.menu {
+  height: 90vh;
+  // width: 20rem;
+  width: 6rem;
+  border-radius: $main_border_raduis * 1rem;
+  background-color: $primary_color;
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.5s;
+  &__logo {
+    font-family: xirod;
+    color: $withe_color;
+    font-size: 1rem;
+    align-self: center;
+    text-align: center;
+  }
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    align-items: center;
+    color: $withe_color;
+    gap: 4.8rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    & > div {
+      font-size: 3.2rem;
+      cursor: pointer;
+      position: relative;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      &:not(:first-child)::after {
+        content: "";
+        width: 0.5rem;
+        height: 100%;
+        position: absolute;
+        background-color: $withe_color;
+        top: 0;
+        right: -1.6rem;
+        border-radius: $main_border_raduis * 1rem;
+        transform: scaleY(0);
+        transform-origin: center;
+        transition: transform 0.5s;
+        z-index: 1;
+      }
+      &:hover::after {
+        transform: scaleY(1);
+      }
+    }
+    &--active {
+      position: relative;
+      &::after {
+        content: "";
+        width: 0.5rem;
+        height: 100%;
+        position: absolute;
+        background-color: $withe_color;
+        top: 0;
+        right: -1.6rem;
+        border-radius: $main_border_raduis * 1rem;
+      }
+    }
+    &--text {
+      display: none;
+      font-size: 1.6rem;
+      margin-right: 0.8rem;
+    }
+  }
+  &__setting {
+    font-size: 3.2rem;
+    color: $withe_color;
+    position: relative;
+    width: 100%;
+
+    & div {
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    &::after {
+      content: "";
+      width: 0.5rem;
+      height: 100%;
+      position: absolute;
+      background-color: $withe_color;
+      top: 0;
+      right: -1.6rem;
+      border-radius: $main_border_raduis * 1rem;
+      transform: scaleY(0);
+      transform-origin: center;
+      transition: transform 0.5s;
+      z-index: 1;
+    }
+    &:hover::after {
+      transform: scaleY(1);
+    }
+    &--text {
+      font-size: 1.6rem;
+      margin-right: 1.6rem;
+      display: none;
+    }
+  }
+  &__arrow {
+    position: absolute;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    background-color: $withe_color;
+    top: 10%;
+    left: 0;
+    transform: translateX(-50%);
+    box-shadow: 0 0 1.6rem rgba($black_color, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4rem;
+    cursor: pointer;
+  }
+  &__collapse {
+    transition: all 0.5s;
+  }
+}

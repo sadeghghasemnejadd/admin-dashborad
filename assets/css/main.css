@@ -1,0 +1,154 @@
+@font-face {
+  font-family: "xirod";
+  src: url("./../fonts/xirod.ttf");
+}
+@font-face {
+  font-family: "iransans";
+  src: url("./../fonts/IRANSans.ttf");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: iransans;
+}
+
+body {
+  font-size: 1.6rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 3.2rem;
+}
+
+.menu {
+  height: 90vh;
+  width: 6rem;
+  border-radius: 2.4rem;
+  background-color: #3b5bdb;
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.5s;
+}
+.menu__logo {
+  font-family: xirod;
+  color: #edf2ff;
+  font-size: 1rem;
+  align-self: center;
+  text-align: center;
+}
+.menu__buttons {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  align-items: center;
+  color: #edf2ff;
+  gap: 4.8rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.menu__buttons > div {
+  font-size: 3.2rem;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.menu__buttons > div:not(:first-child)::after {
+  content: "";
+  width: 0.5rem;
+  height: 100%;
+  position: absolute;
+  background-color: #edf2ff;
+  top: 0;
+  right: -1.6rem;
+  border-radius: 2.4rem;
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.5s;
+  z-index: 1;
+}
+.menu__buttons > div:hover::after {
+  transform: scaleY(1);
+}
+.menu__buttons--active {
+  position: relative;
+}
+.menu__buttons--active::after {
+  content: "";
+  width: 0.5rem;
+  height: 100%;
+  position: absolute;
+  background-color: #edf2ff;
+  top: 0;
+  right: -1.6rem;
+  border-radius: 2.4rem;
+}
+.menu__buttons--text {
+  display: none;
+  font-size: 1.6rem;
+  margin-right: 0.8rem;
+}
+.menu__setting {
+  font-size: 3.2rem;
+  color: #edf2ff;
+  position: relative;
+  width: 100%;
+}
+.menu__setting div {
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.menu__setting::after {
+  content: "";
+  width: 0.5rem;
+  height: 100%;
+  position: absolute;
+  background-color: #edf2ff;
+  top: 0;
+  right: -1.6rem;
+  border-radius: 2.4rem;
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.5s;
+  z-index: 1;
+}
+.menu__setting:hover::after {
+  transform: scaleY(1);
+}
+.menu__setting--text {
+  font-size: 1.6rem;
+  margin-right: 1.6rem;
+  display: none;
+}
+.menu__arrow {
+  position: absolute;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background-color: #edf2ff;
+  top: 10%;
+  left: 0;
+  transform: translateX(-50%);
+  box-shadow: 0 0 1.6rem rgba(33, 37, 41, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  cursor: pointer;
+}
+.menu__collapse {
+  transition: all 0.5s;
+}
+
+/*# sourceMappingURL=main.css.map */

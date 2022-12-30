@@ -2,6 +2,19 @@ $primary_color: #3b5bdb;
 $withe_color: #edf2ff;
 $black_color: #212529;
 $main_border_raduis: 2.4;
+$sizes: (
+  "x-large": 160em,
+  "large": 125em,
+  "medium": 95em,
+  "small": 76em,
+  "x-small": 71em,
+  "xx-small": 54em,
+);
+@mixin responsive($size) {
+  @media only screen and (max-width: map-get($sizes,$size)) {
+    @content;
+  }
+}
 @font-face {
   font-family: "xirod";
   src: url("./../fonts/xirod.ttf");
@@ -18,17 +31,31 @@ $main_border_raduis: 2.4;
 html {
   font-size: 62.5%;
   font-family: iransans;
+  @include responsive("x-large") {
+    font-size: 80%;
+  }
+  @include responsive("large") {
+    font-size: 70%;
+  }
+  @include responsive("small") {
+    font-size: 55%;
+  }
 }
 body {
   font-size: 1.6rem;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 3.2rem;
+  // padding: 3.2rem;
 }
 
+.container {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 3.2rem;
+  padding: 3.2rem;
+  padding-bottom: 0;
+}
 .menu {
-  height: 90vh;
+  align-self: center;
+  height: 100%;
   // width: 20rem;
   width: 6rem;
   border-radius: $main_border_raduis * 1rem;
@@ -152,5 +179,163 @@ body {
   }
   &__collapse {
     transition: all 0.5s;
+  }
+}
+.main {
+  display: grid;
+  grid-template-rows: repeat(3, max-content);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4rem;
+  &__title {
+    grid-column: 1/-1;
+  }
+  &__carts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4.8rem;
+    grid-row: 2/-1;
+    grid-column: 1/-1;
+    justify-content: space-between;
+    &--cart {
+      flex: 1 1 22%;
+      width: 100%;
+      height: 15rem;
+      display: grid;
+      grid-template-columns: 1fr min-content;
+      border-radius: $main_border_raduis * 1rem;
+      box-shadow: 0 0 1.6rem rgba($black_color, 0.5);
+      padding: 1.6rem;
+      &-icon {
+        grid-column: 1/2;
+        font-size: 4rem;
+        color: $primary_color;
+        justify-self: start;
+        align-self: start;
+        display: flex;
+      }
+      &-menu {
+        grid-column: 3/-1;
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 50%;
+        background-color: $withe_color;
+        color: $black_color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  &__statistics {
+    display: grid;
+    grid-template-columns: max-content repeat(4, 1fr);
+    gap: 4rem;
+    grid-column: 1/-1;
+    align-items: start;
+    align-content: start;
+    @include responsive("small") {
+      grid-template-columns: max-content repeat(3, 1fr);
+    }
+    @include responsive("xx-small") {
+      grid-template-rows: min-content 1fr;
+    }
+    %statistics_card {
+      padding: 1.6rem;
+      box-shadow: 0 0 1.6rem rgba($black_color, 0.5);
+      border-radius: $main_border_raduis * 1rem;
+    }
+    &--cards {
+      display: flex;
+      flex-direction: column;
+      gap: 3.2rem;
+      @include responsive("xx-small") {
+        flex-direction: row;
+        grid-column: 1/-1;
+        width: 100%;
+      }
+    }
+    &--new-clinet,
+    &--over-due {
+      @extend %statistics_card;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @include responsive("xx-small") {
+        width: 100%;
+      }
+      &--text {
+        font-weight: bold;
+      }
+      &--number {
+        font-size: 6rem;
+        color: $primary_color;
+      }
+      &--percantage {
+        padding: 0.4rem 1.6rem;
+        text-align: center;
+        align-self: flex-start;
+        border-radius: 0.5rem;
+      }
+    }
+    &--new-clinet {
+      &--percantage {
+        background-color: rgba(green, 0.5);
+      }
+    }
+    &--over-due {
+      &--percantage {
+        background-color: rgba(red, 0.5);
+      }
+    }
+    &--graph {
+      grid-column: 2/5;
+      grid-row: 1/-1;
+      @extend %statistics_card;
+      @include responsive("xx-small") {
+        grid-column: 1/-1;
+        grid-row: 2/-1;
+      }
+    }
+    &--new-emails {
+      grid-row: 1/-1;
+      grid-column: 5/-1;
+      box-shadow: 0 0 1.6rem rgba($black_color, 0.5);
+      // width: 100%;
+      max-height: 50vh;
+      overflow-y: scroll;
+      border-radius: $main_border_raduis * 1rem;
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3.2rem;
+      @include responsive("small") {
+        display: none;
+      }
+      &-emails {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        &-email {
+          display: flex;
+          gap: 1.6rem;
+          align-items: center;
+          padding: 1.6rem;
+          box-shadow: 0 0 1.6rem rgba($black_color, 0.5);
+          border-radius: $main_border_raduis * 1rem;
+          @include responsive("medium") {
+            flex-direction: column;
+          }
+          &-pic {
+            width: 4.8rem;
+            height: 4.8rem;
+            border-radius: 50%;
+          }
+          &-text {
+            font-size: 1.2rem;
+            opacity: 0.5;
+          }
+        }
+      }
+    }
   }
 }

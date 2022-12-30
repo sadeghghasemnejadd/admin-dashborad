@@ -16,17 +16,37 @@ html {
   font-size: 62.5%;
   font-family: iransans;
 }
+@media only screen and (max-width: 160em) {
+  html {
+    font-size: 80%;
+  }
+}
+@media only screen and (max-width: 125em) {
+  html {
+    font-size: 70%;
+  }
+}
+@media only screen and (max-width: 76em) {
+  html {
+    font-size: 55%;
+  }
+}
 
 body {
   font-size: 1.6rem;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 3.2rem;
   padding: 3.2rem;
+  padding-bottom: 0;
 }
 
 .menu {
-  height: 90vh;
+  align-self: center;
+  height: 100%;
   width: 6rem;
   border-radius: 2.4rem;
   background-color: #3b5bdb;
@@ -149,6 +169,171 @@ body {
 }
 .menu__collapse {
   transition: all 0.5s;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: repeat(3, max-content);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4rem;
+}
+.main__title {
+  grid-column: 1/-1;
+}
+.main__carts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4.8rem;
+  grid-row: 2/-1;
+  grid-column: 1/-1;
+  justify-content: space-between;
+}
+.main__carts--cart {
+  flex: 1 1 22%;
+  width: 100%;
+  height: 15rem;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  border-radius: 2.4rem;
+  box-shadow: 0 0 1.6rem rgba(33, 37, 41, 0.5);
+  padding: 1.6rem;
+}
+.main__carts--cart-icon {
+  grid-column: 1/2;
+  font-size: 4rem;
+  color: #3b5bdb;
+  justify-self: start;
+  align-self: start;
+  display: flex;
+}
+.main__carts--cart-menu {
+  grid-column: 3/-1;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background-color: #edf2ff;
+  color: #212529;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main__statistics {
+  display: grid;
+  grid-template-columns: max-content repeat(4, 1fr);
+  gap: 4rem;
+  grid-column: 1/-1;
+  align-items: start;
+  align-content: start;
+}
+@media only screen and (max-width: 76em) {
+  .main__statistics {
+    grid-template-columns: max-content repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 54em) {
+  .main__statistics {
+    grid-template-rows: min-content 1fr;
+  }
+}
+.main__statistics .main__statistics--graph, .main__statistics .main__statistics--new-clinet, .main__statistics .main__statistics--over-due {
+  padding: 1.6rem;
+  box-shadow: 0 0 1.6rem rgba(33, 37, 41, 0.5);
+  border-radius: 2.4rem;
+}
+.main__statistics--cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+@media only screen and (max-width: 54em) {
+  .main__statistics--cards {
+    flex-direction: row;
+    grid-column: 1/-1;
+    width: 100%;
+  }
+}
+.main__statistics--new-clinet, .main__statistics--over-due {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 54em) {
+  .main__statistics--new-clinet, .main__statistics--over-due {
+    width: 100%;
+  }
+}
+.main__statistics--new-clinet--text, .main__statistics--over-due--text {
+  font-weight: bold;
+}
+.main__statistics--new-clinet--number, .main__statistics--over-due--number {
+  font-size: 6rem;
+  color: #3b5bdb;
+}
+.main__statistics--new-clinet--percantage, .main__statistics--over-due--percantage {
+  padding: 0.4rem 1.6rem;
+  text-align: center;
+  align-self: flex-start;
+  border-radius: 0.5rem;
+}
+.main__statistics--new-clinet--percantage {
+  background-color: rgba(0, 128, 0, 0.5);
+}
+.main__statistics--over-due--percantage {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+.main__statistics--graph {
+  grid-column: 2/5;
+  grid-row: 1/-1;
+}
+@media only screen and (max-width: 54em) {
+  .main__statistics--graph {
+    grid-column: 1/-1;
+    grid-row: 2/-1;
+  }
+}
+.main__statistics--new-emails {
+  grid-row: 1/-1;
+  grid-column: 5/-1;
+  box-shadow: 0 0 1.6rem rgba(33, 37, 41, 0.5);
+  max-height: 50vh;
+  overflow-y: scroll;
+  border-radius: 2.4rem;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+@media only screen and (max-width: 76em) {
+  .main__statistics--new-emails {
+    display: none;
+  }
+}
+.main__statistics--new-emails-emails {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.main__statistics--new-emails-emails-email {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  padding: 1.6rem;
+  box-shadow: 0 0 1.6rem rgba(33, 37, 41, 0.5);
+  border-radius: 2.4rem;
+}
+@media only screen and (max-width: 95em) {
+  .main__statistics--new-emails-emails-email {
+    flex-direction: column;
+  }
+}
+.main__statistics--new-emails-emails-email-pic {
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 50%;
+}
+.main__statistics--new-emails-emails-email-text {
+  font-size: 1.2rem;
+  opacity: 0.5;
 }
 
 /*# sourceMappingURL=main.css.map */

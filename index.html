@@ -5,49 +5,184 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <script src="./assets/javascript/main.js" defer></script>
     <title>sadegh dashboard</title>
   </head>
   <body dir="rtl">
-    <aside class="menu">
-      <div class="menu__arrow">
-        <ion-icon name="chevron-back-outline" class="menu__collapse"></ion-icon>
-      </div>
-      <section class="menu__logo">
-        <h3>sa<br />Dash</h3>
+    <main class="container">
+      <aside class="menu">
+        <div class="menu__arrow">
+          <ion-icon
+            name="chevron-back-outline"
+            class="menu__collapse"
+          ></ion-icon>
+        </div>
+        <section class="menu__logo">
+          <h3>sa<br />Dash</h3>
+        </section>
+        <section class="menu__buttons">
+          <div class="menu__buttons--active">
+            <ion-icon name="home-outline"></ion-icon>
+            <p class="menu__buttons--text icon__text">خانه</p>
+          </div>
+          <div>
+            <ion-icon name="stats-chart-outline"></ion-icon>
+            <p class="menu__buttons--text icon__text">آمار</p>
+          </div>
+          <div>
+            <ion-icon name="mail-outline"></ion-icon>
+            <p class="menu__buttons--text icon__text">ایمیل</p>
+          </div>
+          <div>
+            <ion-icon name="people-outline"></ion-icon>
+            <p class="menu__buttons--text icon__text">کاربر</p>
+          </div>
+          <div>
+            <ion-icon name="log-out-outline"></ion-icon>
+            <p class="menu__buttons--text icon__text">خروج</p>
+          </div>
+        </section>
+        <section class="menu__setting">
+          <div>
+            <ion-icon name="settings-outline"></ion-icon>
+            <p class="menu__setting--text icon__text">تنظیمات</p>
+          </div>
+        </section>
+      </aside>
+      <section class="main">
+        <h1 class="main__title">خوش اومدی آقا صادق!</h1>
+        <section class="main__carts">
+          <div class="main__carts--cart">
+            <div class="main__carts--cart-icon">
+              <ion-icon name="wallet-outline"></ion-icon>
+            </div>
+            <div class="main__carts--cart-menu">
+              <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+            </div>
+            <div class="main__carts--cart-details">
+              <h4 class="main__carts--cart-details-price">1,500,000 تومان</h4>
+              <p>موجودی حساب بانکی</p>
+            </div>
+          </div>
+          <div class="main__carts--cart">
+            <div class="main__carts--cart-icon">
+              <ion-icon name="pie-chart-outline"></ion-icon>
+            </div>
+            <div class="main__carts--cart-menu">
+              <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+            </div>
+            <div class="main__carts--cart-details">
+              <h4 class="main__carts--cart-details-price">32%</h4>
+              <p>فروش این هفته</p>
+            </div>
+          </div>
+          <div class="main__carts--cart">
+            <div class="main__carts--cart-icon">
+              <ion-icon name="person-outline"></ion-icon>
+            </div>
+            <div class="main__carts--cart-menu">
+              <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+            </div>
+            <div class="main__carts--cart-details">
+              <h4 class="main__carts--cart-details-price">52</h4>
+              <p>کاربرانی که این هفته ثبت نام کردن</p>
+            </div>
+          </div>
+          <div class="main__carts--cart">
+            <div class="main__carts--cart-icon">
+              <ion-icon name="card-outline"></ion-icon>
+            </div>
+            <div class="main__carts--cart-menu">
+              <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+            </div>
+            <div class="main__carts--cart-details">
+              <h4 class="main__carts--cart-details-price">1,100,000 تومان</h4>
+              <p>میزان فروش این هفته</p>
+            </div>
+          </div>
+        </section>
+        <section class="main__statistics">
+          <div class="main__statistics--cards">
+            <div class="main__statistics--new-clinet">
+              <p class="main__statistics--new-clinet--text">مشتریان جدید</p>
+              <p class="main__statistics--new-clinet--number">62</p>
+              <p class="main__statistics--new-clinet--percantage">3.2%</p>
+            </div>
+            <div class="main__statistics--over-due">
+              <p class="main__statistics--over-due--text">
+                عملیات های انجام نشده
+              </p>
+              <p class="main__statistics--over-due--number">3</p>
+              <p class="main__statistics--over-due--percantage">5.8%</p>
+            </div>
+          </div>
+          <div class="main__statistics--graph">
+            <canvas class="main__statistics--graph-container"></canvas>
+          </div>
+          <div class="main__statistics--new-emails">
+            <h1>آخرین پیام ها</h1>
+            <div class="main__statistics--new-emails-emails">
+              <div class="main__statistics--new-emails-emails-email">
+                <img
+                  src="./assets/images/14.jpg"
+                  alt="14"
+                  class="main__statistics--new-emails-emails-email-pic"
+                />
+                <p class="main__statistics--new-emails-emails-email-text">
+                  لورم لورم لورم لورم لورم لورم لورم لورم لورم لورم لورم
+                  لورملورم لورملورم لورم لورم لورم
+                </p>
+              </div>
+              <div class="main__statistics--new-emails-emails-email">
+                <img
+                  src="./assets/images/29.jpg"
+                  alt="14"
+                  class="main__statistics--new-emails-emails-email-pic"
+                />
+                <p class="main__statistics--new-emails-emails-email-text">
+                  لورم لورم لورم لورم لورم لورم لورم لورم لورم لورم لورم
+                  لورملورم لورملورم لورم لورم لورم
+                </p>
+              </div>
+              <div class="main__statistics--new-emails-emails-email">
+                <img
+                  src="./assets/images/34.jpg"
+                  alt="14"
+                  class="main__statistics--new-emails-emails-email-pic"
+                />
+                <p class="main__statistics--new-emails-emails-email-text">
+                  لورم لورم لورم لورم لورم لورم لورم لورم لورم لورم لورم
+                  لورملورم لورملورم لورم لورم لورم
+                </p>
+              </div>
+              <div class="main__statistics--new-emails-emails-email">
+                <img
+                  src="./assets/images/58.jpg"
+                  alt="14"
+                  class="main__statistics--new-emails-emails-email-pic"
+                />
+                <p class="main__statistics--new-emails-emails-email-text">
+                  لورم لورم لورم لورم لورم لورم لورم لورم لورم لورم لورم
+                  لورملورم لورملورم لورم لورم لورم
+                </p>
+              </div>
+              <div class="main__statistics--new-emails-emails-email">
+                <img
+                  src="./assets/images/75.jpg"
+                  alt="14"
+                  class="main__statistics--new-emails-emails-email-pic"
+                />
+                <p class="main__statistics--new-emails-emails-email-text">
+                  لورم لورم لورم لورم لورم لورم لورم لورم لورم لورم لورم
+                  لورملورم لورملورم لورم لورم لورم
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
-      <section class="menu__buttons">
-        <div class="menu__buttons--active">
-          <ion-icon name="home-outline"></ion-icon>
-          <p class="menu__buttons--text icon__text">خانه</p>
-        </div>
-        <div>
-          <ion-icon name="stats-chart-outline"></ion-icon>
-          <p class="menu__buttons--text icon__text">آمار</p>
-        </div>
-        <div>
-          <ion-icon name="mail-outline"></ion-icon>
-          <p class="menu__buttons--text icon__text">ایمیل</p>
-        </div>
-        <div>
-          <ion-icon name="people-outline"></ion-icon>
-          <p class="menu__buttons--text icon__text">کاربر</p>
-        </div>
-        <div>
-          <ion-icon name="log-out-outline"></ion-icon>
-          <p class="menu__buttons--text icon__text">خروج</p>
-        </div>
-      </section>
-      <section class="menu__setting">
-        <div>
-          <ion-icon name="settings-outline"></ion-icon>
-          <p class="menu__setting--text icon__text">تنظیمات</p>
-        </div>
-      </section>
-    </aside>
-    <main></main>
-    <aside></aside>
-
+    </main>
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
